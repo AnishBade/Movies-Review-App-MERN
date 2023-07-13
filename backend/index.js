@@ -9,16 +9,19 @@ async function main(){
         process.env.MOVIESREVIEW_DB_URI
     )
 
-const port = process.env.PORT || 8000
-try{
-    //Connect to the MongoDB cluster  
-    await client.connect()
+    const port = process.env.PORT||8000
+    try{
+        //Connect to the MongoDB cluster  
+        await client.connect()
 
-    app.listen(port,()=>{
-        console.log('server is running on port:'+port);
-    })
-}catch(e){
-    console.error(e);
-    process.exit(1)
+        app.listen(port,()=>{
+            console.log('server is running on port:'+port);
+        })
+    }catch(e){
+        console.error(e);
+        process.exit(1)
+    }
 }
-}
+
+
+main().catch(console.error);
